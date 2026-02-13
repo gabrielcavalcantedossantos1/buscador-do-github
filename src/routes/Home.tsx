@@ -6,6 +6,7 @@ import Search from '../components/Search';
 import User from '../components/User';
 import Erros from '../components/Erros';
 
+
 //types
 import type { UserProps } from '../tpes/user';
 import Loader from '../components/Loader';

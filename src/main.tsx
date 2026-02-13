@@ -7,15 +7,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 //pages
 import Home from './routes/Home.tsx';
+import Repos from './routes/Repos.tsx';
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    children : [
+    children: [
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/repos/:username',
+        element: <Repos />,
       },
     ],
   },
