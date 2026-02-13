@@ -32,7 +32,12 @@ const User = ({
           <p className={styles.number}>{following}</p>
         </div>
       </div>
-      <Link to={`/repos/${login}`}>Ver Projetos</Link>
+      <div className={styles.botoes}>
+        <a target="_blank" href={`https://www.linkedin.com/in/${login}`}>
+          LinkedIn
+        </a>
+        <Link to={`/repos/${login}`}>Ver Projetos</Link>
+      </div>
     </div>
   );
 };
