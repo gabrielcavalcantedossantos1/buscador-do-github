@@ -6,6 +6,8 @@ import type { RepoProps } from '../tpes/repo';
 import { useEffect, useState } from 'react';
 import Repo from '../components/Repo';
 
+import styles from './Repos.module.css';
+
 const Repos = () => {
   const { username } = useParams();
 
@@ -23,7 +25,7 @@ const Repos = () => {
 
       setIsLoading(false);
 
-      setRepos(data)
+      setRepos(data);
     };
 
     if (username) loadRepos(username);
@@ -32,13 +34,17 @@ const Repos = () => {
   if (isLoading && !repos) return <Loader />;
 
   return (
-    <div>
+    <div className={styles.repos}>
       <BackBtn />
       <h2>Explore os repositórios do usuário: {username}</h2>
-      {repos && repos.length === 0 && <p>Não há repositórios para esse usuário.</p>}
+      {repos && repos.length === 0 && (
+        <p>Não há repositórios para esse usuário.</p>
+      )}
       {repos && repos.length > 0 && (
-        <div>
-          {repos.map((repo: RepoProps) => <Repo key={repo.html_url} {...repo} />)}
+        <div className={styles.repos_container}>
+          {repos.map((repo: RepoProps) => (
+            <Repo key={repo.html_url} {...repo} />
+          ))}
         </div>
       )}
     </div>
